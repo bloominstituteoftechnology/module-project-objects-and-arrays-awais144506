@@ -130,8 +130,16 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string , char) {
+      let stripString = string.split("")
+      for (let i in stripString)
+      {
+        if(stripString[i]==char)
+        {
+          delete stripString[i]
+        }
+      }
+      return stripString.join("")
     }
 
     // 👉 CHALLENGE 9
@@ -143,8 +151,17 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+         let result=[]
+         for(let key in obj)
+         {
+          if(key !=="age" && key !=="married")
+          {
+            result[result.length] = key
+          }
+         }
+         return result
+    
     }
 
     // 🧪 TESTS, do not work below this line
