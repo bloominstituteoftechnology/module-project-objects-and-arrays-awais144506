@@ -32,9 +32,8 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-      const objectDeclare2 = {firstName:firstName, lastName:lastName, age:age}
+      const objectDeclare2 = {firstName, lastName, age}
       return objectDeclare2
-      
     }
 
     // 👉 CHALLENGE 3
@@ -45,11 +44,18 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice(item,isPriceless) {
-      const objectCars = {
-        
-      }
+    function deletePrice(obj) {
+    if(obj.price !==undefined)
+    {
+      delete obj.price
     }
+    else
+    {
+      obj.priceless = true
+    }
+    return obj
+    }
+
 
     // 👉 CHALLENGE 4
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -58,7 +64,11 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      if (arr.length%2==0)
+      {
+        return true      
+      }
+      return false 
     }
 
     // 👉 CHALLENGE 5
@@ -67,8 +77,12 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(array,Boolean) {
+      if (Boolean)
+      {
+        return array[0]
+      }
+      return array[array.length-1]
     }
 
     // 👉 CHALLENGE 6
@@ -77,8 +91,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(array,value) {
+      array.push(value)
+      return array
     }
 
     // 👉 CHALLENGE 7
@@ -93,9 +108,18 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(string) {
+      let stringContain = string.split("")
+      for (let i in stringContain)
+      {
+        if (stringContain[i]==="x")
+        {
+          delete stringContain[i]
+        }
+      }
+      return stringContain.join("")
     }
+     
 
     // 👉 CHALLENGE 8
     // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
